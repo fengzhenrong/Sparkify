@@ -3,18 +3,25 @@ Udacity项目：这是一个音乐服务数据集，项目里有个小型的数�
 
 ### 运行环境
 Python3.7
+
 PySpark 2.4.5
+
 Jupyter notebook
 
 ### 依赖库
 pandas
+
 numpy
+
 pyspark
+
 matplotlib
+
 seaborn
 
 ## 工程目录
 Sparkify-zh.ipynb:ipynb格式文件，详细记录了数据集的处理，分析，特征工程和模型建立
+
 Sparkify-zh.html:html格式文件，详细记录了数据集的处理，分析，特征工程和模型建立
 
 ## 分析流程
@@ -35,10 +42,12 @@ Sparkify-zh.html:html格式文件，详细记录了数据集的处理，分析�
 
 ## 评价指标
 Accuracy：准确率
+
 F1 score：分数
 
 ## 结论
 在这里我们使用F1 score作为指标，在训练中几个方法分数差别不大，可能数据量少的导致预测不是很准确，还有超参数调优是比较困难的，项目运行的时间较久；
+
 对于哪一个模型更适用于本次项目，个人认为使用Logistic Regression的模型比较好，时间上，分数都有不错的表现；
 
 ### 最后，谢谢大家查看我的项目，如果大家有什么好的建议及有哪些可以改进的地方，可以提出来；谢谢！
