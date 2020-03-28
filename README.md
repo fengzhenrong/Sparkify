@@ -24,8 +24,11 @@ Sparkify-zh.html:html格式文件，详细记录了数据集的处理，分析�
 
 ## 使用到的模型
 -Logistic Regression
+
 -Gradient Boosted Trees
+
 -Support Vector Machine
+
 -Random Forest
 
 ## 评价指标
