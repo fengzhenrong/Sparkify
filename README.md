@@ -51,5 +51,13 @@ F1 score：分数
 
 对于哪一个模型更适用于本次项目，个人认为使用SupportVectorMachine(SVM)的模型比较好，时间上，分数都有不错的表现；
 
+## 参考文献
+[F1 score](https://en.wikipedia.org/wiki/F1_score).
+
+[ROC 和 AUC](https://blog.csdn.net/otengyue/article/details/89426004).
+
+[CrossValidator](https://spark.apache.org/docs/latest/ml-tuning.html).
+
+
 ### 最后，谢谢大家查看我的项目，如果大家有什么好的建议及有哪些可以改进的地方，可以提出来；谢谢！
 
