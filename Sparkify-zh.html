@@ -13124,7 +13124,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[119]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import libraries</span>
@@ -13135,7 +13135,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">pyspark.sql.types</span> <span class="k">import</span> <span class="n">IntegerType</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.feature</span> <span class="k">import</span> <span class="n">Normalizer</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">VectorAssembler</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.regression</span> <span class="k">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">pyspark.ml.classification</span> <span class="k">import</span> <span class="n">LogisticRegression</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">GBTClassifier</span><span class="p">,</span> <span class="n">LinearSVC</span>
+<span class="kn">from</span> <span class="nn">pyspark.ml.classification</span> <span class="k">import</span> <span class="n">LogisticRegression</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">GBTClassifier</span><span class="p">,</span> <span class="n">LinearSVC</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.evaluation</span> <span class="k">import</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">,</span><span class="n">BinaryClassificationEvaluator</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml.tuning</span> <span class="k">import</span> <span class="n">CrossValidator</span><span class="p">,</span> <span class="n">ParamGridBuilder</span>
 <span class="kn">from</span> <span class="nn">pyspark.ml</span> <span class="k">import</span> <span class="n">Pipeline</span>
@@ -13157,7 +13157,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a Spark session</span>
@@ -13182,7 +13182,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="s2">&quot;mini_sparkify_event_data.json&quot;</span><span class="p">)</span>
@@ -13196,7 +13196,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 查看数据集结构</span>
@@ -13247,7 +13247,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -13287,7 +13287,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="s2">&quot;userId&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -13327,7 +13327,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -13343,7 +13343,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13364,7 +13364,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#查看每行记录的缺失值</span>
@@ -13381,7 +13381,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -14398,7 +14398,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 可以看出，userid，有值为空‘’的数据，我们的主要是探索用户流失情况，userid为空的需要刷选出来</span>
@@ -14416,7 +14416,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -14467,7 +14467,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 把用户不为空的刷选出来</span>
@@ -14481,7 +14481,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
@@ -14497,7 +14497,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -14874,7 +14874,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 时间戳查看起来比较困难，我们把时间戳转成年月日时间</span>
@@ -14889,7 +14889,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
@@ -15073,7 +15073,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 查看用户执行Cancellation Confirmation操作的用户有那些</span>
@@ -15334,7 +15334,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 转化小时hour</span>
@@ -15349,7 +15349,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 根据Cancellation Confirmation重新定义一个Churn用来区分用户</span>
@@ -15368,7 +15368,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_weekday</span> <span class="o">=</span> <span class="n">udf</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span><span class="o">.</span><span class="n">weekday</span><span class="p">(),</span> <span class="n">IntegerType</span><span class="p">())</span>
@@ -15388,7 +15388,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 根据Submit Downgrade重新定义一个downgraded用来区分降级用户</span>
@@ -15403,7 +15403,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
@@ -16611,7 +16611,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义一个临时数据库表</span>
@@ -16625,7 +16625,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[205]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_features_clean</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
@@ -16656,7 +16656,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[206]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_features</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -16672,7 +16672,7 @@ only showing top 20 rows
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[206]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
@@ -16873,7 +16873,7 @@ only showing top 20 rows
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[207]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_features</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -16889,7 +16889,7 @@ only showing top 20 rows
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[207]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -17128,7 +17128,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[210]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 把空值替换为0</span>
@@ -17181,9 +17181,29 @@ dtype: int64
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#35780;&#20215;&#25351;&#26631;">&#35780;&#20215;&#25351;&#26631;<a class="anchor-link" href="#&#35780;&#20215;&#25351;&#26631;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>在项目中我定义两个指标，Accuracy准确率跟F1 score；准确率，该指标的高低决定模型的好坏程度，但需要结合训练集和测试集来看，如果训练集准确率太高，但测试集准确率过低，那模型就会过拟合；如果训练集和测试集的accuracy都太低，则说明欠拟合。F1 score是对测试准确性的度量，模型精准率和召回率的一种加权平均，它的最大值是1，最小值是0；</p>
+<p>ROC的全名叫做Receiver Operating Characteristic，其主要分析工具是一个画在二维平面上的曲线——ROC curve。平面的横坐标是false positive rate(FPR)，纵坐标是true positive rate(TPR);</p>
+<p>AUC（Area Under roc Curve）是一种用来度量分类模型好坏的一个标准。这样的标准其实有很多，例如：大约10年前在machine learning文献中一统天下的标准：分类精度；在信息检索(IR)领域中常用的recall和precision;</p>
+<p>为什么选择F1score指标，因为我们需更加精准的了解客户流失情况，避免留存用户流失，precision 就更加重要；在检测的时候，我们不希望查漏任何一用户，这时 recall（TPR） 就更重要。当两者都需要考虑时，F1-score 就是一种参考指标。</p>
+<h3 id="&#21442;&#32771;&#25991;&#29486;">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></h3><p><a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a></p>
+<p><a href="https://blog.csdn.net/otengyue/article/details/89426004">ROC 和 AUC</a></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[211]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_features_models</span> <span class="o">=</span> <span class="n">df_features_clean</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;userId&quot;</span><span class="p">)</span>
@@ -17196,7 +17216,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[212]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_features_models</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -17212,7 +17232,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[212]:</div>
+    <div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -17238,7 +17258,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[183]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 行数据专程拜访向量</span>
@@ -17252,7 +17272,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[184]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_cols</span>
@@ -17268,7 +17288,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[184]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -17294,16 +17314,18 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[213]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 归一化向量</span>
 <span class="n">assembler</span> <span class="o">=</span> <span class="n">VectorAssembler</span><span class="p">(</span><span class="n">inputCols</span><span class="o">=</span><span class="n">input_cols</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;NumFeatures&quot;</span><span class="p">)</span>
-<span class="c1"># df_features_models = assembler.transform(df_features_models)</span>
+<span class="n">df_features_transform_models</span> <span class="o">=</span> <span class="n">assembler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_features_models</span><span class="p">)</span>
 
+<span class="c1"># MinMaxScaler作用同样是每一列，即每一维特征。将每一维特征线性地映射到指定的区间，通常是[0, 1]</span>
+<span class="c1"># StandardScaler处理的对象是每一列，也就是每一维特征，将特征标准化为单位标准差或是0均值，或是0均值单位标准差。</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;NumFeatures&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
-<span class="c1"># scalerModel = scaler.fit(df_features_models)</span>
-<span class="c1"># df_features_models = scalerModel.transform(df_features_models)</span>
+<span class="n">scalerModel</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_features_transform_models</span><span class="p">)</span>
+<span class="n">df_features_transform_models</span> <span class="o">=</span> <span class="n">scalerModel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_features_transform_models</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -17313,40 +17335,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[214]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaler</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[214]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>MinMaxScaler_ea333b0e4e4a</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[215]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_features_models</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -17362,7 +17351,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[215]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
@@ -17383,11 +17372,49 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[217]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义训练集跟测试集</span>
-<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">df_features_models</span><span class="o">.</span><span class="n">randomSplit</span><span class="p">([</span><span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">],</span> <span class="n">seed</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_features_transform_models</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[Row(label=1, gender=0, level=1, song_count=498, song_time=129169.13569999998, error_count=0, submit_downgrade_count=1, thumbs_up_count=29, add_friend_count=8, add_playlist_count=13, downgrade_count=5, NumFeatures=DenseVector([0.0, 1.0, 498.0, 129169.1357, 0.0, 1.0, 29.0, 8.0, 13.0, 5.0]), features=DenseVector([0.0, 2.0042, 0.6875, 0.5984, 0.0, 2.0676, 0.557, 0.4932, 0.5034, 0.4867])),
+ Row(label=0, gender=0, level=1, song_count=118, song_time=29945.909930000005, error_count=0, submit_downgrade_count=1, thumbs_up_count=11, add_friend_count=1, add_playlist_count=2, downgrade_count=1, NumFeatures=DenseVector([0.0, 1.0, 118.0, 29945.9099, 0.0, 1.0, 11.0, 1.0, 2.0, 1.0]), features=DenseVector([0.0, 2.0042, 0.1629, 0.1387, 0.0, 2.0676, 0.2113, 0.0617, 0.0774, 0.0973])),
+ Row(label=0, gender=1, level=0, song_count=71, song_time=16727.529800000004, error_count=0, submit_downgrade_count=0, thumbs_up_count=3, add_friend_count=3, add_playlist_count=1, downgrade_count=0, NumFeatures=DenseVector([1.0, 0.0, 71.0, 16727.5298, 0.0, 0.0, 3.0, 3.0, 1.0, 0.0]), features=DenseVector([2.0017, 0.0, 0.098, 0.0775, 0.0, 0.0, 0.0576, 0.185, 0.0387, 0.0])),
+ Row(label=0, gender=1, level=0, song_count=27, song_time=6235.364090000001, error_count=0, submit_downgrade_count=0, thumbs_up_count=2, add_friend_count=0, add_playlist_count=4, downgrade_count=0, NumFeatures=SparseVector(10, {0: 1.0, 2: 27.0, 3: 6235.3641, 6: 2.0, 8: 4.0}), features=SparseVector(10, {0: 2.0017, 2: 0.0373, 3: 0.0289, 6: 0.0384, 8: 0.1549})),
+ Row(label=0, gender=0, level=1, song_count=4055, song_time=1275322.5661599992, error_count=3, submit_downgrade_count=1, thumbs_up_count=245, add_friend_count=92, add_playlist_count=162, downgrade_count=68, NumFeatures=DenseVector([0.0, 1.0, 4055.0, 1275322.5662, 3.0, 1.0, 245.0, 92.0, 162.0, 68.0]), features=DenseVector([0.0, 2.0042, 5.598, 5.9083, 2.5795, 2.0676, 4.7059, 5.672, 6.2727, 6.6197]))]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义训练集跟测试集,[0.9, 0.1] 或者 [0.8, 0.2]</span>
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">df_features_models</span><span class="o">.</span><span class="n">randomSplit</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="n">seed</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">train_tf</span><span class="p">,</span> <span class="n">test_tf</span> <span class="o">=</span> <span class="n">df_features_transform_models</span><span class="o">.</span><span class="n">randomSplit</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="n">seed</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -17397,7 +17424,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[218]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -17413,7 +17440,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[218]:</div>
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
 
@@ -17434,12 +17461,73 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[219]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_ml_results</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">pd_ml_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd_ml_results</span><span class="p">)</span>
-<span class="n">pd_ml_results</span><span class="p">[</span><span class="s1">&#39;Evaluations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1_Score&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_tf</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[Row(label=0, gender=0, level=1, song_count=118, song_time=29945.909930000005, error_count=0, submit_downgrade_count=1, thumbs_up_count=11, add_friend_count=1, add_playlist_count=2, downgrade_count=1, NumFeatures=DenseVector([0.0, 1.0, 118.0, 29945.9099, 0.0, 1.0, 11.0, 1.0, 2.0, 1.0]), features=DenseVector([0.0, 2.0042, 0.1629, 0.1387, 0.0, 2.0676, 0.2113, 0.0617, 0.0774, 0.0973])),
+ Row(label=1, gender=0, level=1, song_count=498, song_time=129169.13569999998, error_count=0, submit_downgrade_count=1, thumbs_up_count=29, add_friend_count=8, add_playlist_count=13, downgrade_count=5, NumFeatures=DenseVector([0.0, 1.0, 498.0, 129169.1357, 0.0, 1.0, 29.0, 8.0, 13.0, 5.0]), features=DenseVector([0.0, 2.0042, 0.6875, 0.5984, 0.0, 2.0676, 0.557, 0.4932, 0.5034, 0.4867])),
+ Row(label=0, gender=0, level=1, song_count=1884, song_time=534281.17723, error_count=1, submit_downgrade_count=0, thumbs_up_count=113, add_friend_count=48, add_playlist_count=51, downgrade_count=27, NumFeatures=DenseVector([0.0, 1.0, 1884.0, 534281.1772, 1.0, 0.0, 113.0, 48.0, 51.0, 27.0]), features=DenseVector([0.0, 2.0042, 2.6009, 2.4752, 0.8598, 0.0, 2.1705, 2.9593, 1.9747, 2.6284])),
+ Row(label=0, gender=0, level=1, song_count=4055, song_time=1275322.5661599992, error_count=3, submit_downgrade_count=1, thumbs_up_count=245, add_friend_count=92, add_playlist_count=162, downgrade_count=68, NumFeatures=DenseVector([0.0, 1.0, 4055.0, 1275322.5662, 3.0, 1.0, 245.0, 92.0, 162.0, 68.0]), features=DenseVector([0.0, 2.0042, 5.598, 5.9083, 2.5795, 2.0676, 4.7059, 5.672, 6.2727, 6.6197])),
+ Row(label=0, gender=1, level=0, song_count=27, song_time=6235.364090000001, error_count=0, submit_downgrade_count=0, thumbs_up_count=2, add_friend_count=0, add_playlist_count=4, downgrade_count=0, NumFeatures=SparseVector(10, {0: 1.0, 2: 27.0, 3: 6235.3641, 6: 2.0, 8: 4.0}), features=SparseVector(10, {0: 2.0017, 2: 0.0373, 3: 0.0289, 6: 0.0384, 8: 0.1549}))]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#27169;&#22411;&#30340;&#36873;&#25321;&#65306;&#25105;&#20351;&#29992;&#20197;&#19979;&#22235;&#20010;&#27169;&#22411;&#36827;&#34892;&#35757;&#32451;">&#27169;&#22411;&#30340;&#36873;&#25321;&#65306;&#25105;&#20351;&#29992;&#20197;&#19979;&#22235;&#20010;&#27169;&#22411;&#36827;&#34892;&#35757;&#32451;<a class="anchor-link" href="#&#27169;&#22411;&#30340;&#36873;&#25321;&#65306;&#25105;&#20351;&#29992;&#20197;&#19979;&#22235;&#20010;&#27169;&#22411;&#36827;&#34892;&#35757;&#32451;">&#182;</a></h1><ul>
+<li><p>Logistic Regression</p>
+</li>
+<li><p>Gradient Boosted Trees</p>
+</li>
+<li><p>Support Vector Machine</p>
+</li>
+<li><p>Random Forest</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#26080;&#35843;&#21442;&#25968;&#27169;&#22411;">&#26080;&#35843;&#21442;&#25968;&#27169;&#22411;<a class="anchor-link" href="#&#26080;&#35843;&#21442;&#25968;&#27169;&#22411;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_ml_default_results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pd_ml_default_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd_ml_default_results</span><span class="p">)</span>
+<span class="n">pd_ml_default_results</span><span class="p">[</span><span class="s1">&#39;Evaluations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1_Score&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -17449,97 +17537,11 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[220]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义 Machine learning classifiers</span>
-<span class="n">lr_classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">maxIter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">regParam</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">elasticNetParam</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">gbt_classifier</span> <span class="o">=</span> <span class="n">GBTClassifier</span><span class="p">(</span><span class="n">maxIter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">maxIter</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">rf_classifier</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[221]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义 pipelines</span>
-<span class="n">lr_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">lr_classifier</span><span class="p">]);</span>
-<span class="n">gbt_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">gbt_classifier</span><span class="p">]);</span>
-<span class="n">svm_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">svm_classifier</span><span class="p">]);</span>
-<span class="n">rf_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">rf_classifier</span><span class="p">]);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[222]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义 param grids</span>
-<span class="n">lr_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">regParam</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">elasticNetParam</span><span class="p">,[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">aggregationDepth</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
-
-<span class="n">gbt_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">gbt_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">gbt_classifier</span><span class="o">.</span><span class="n">maxDepth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
-
-<span class="n">svm_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
-
-<span class="n">rf_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">rf_classifier</span><span class="o">.</span><span class="n">impurity</span><span class="p">,[</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="s1">&#39;gini&#39;</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">rf_classifier</span><span class="o">.</span><span class="n">maxDepth</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">rf_classifier</span><span class="o">.</span><span class="n">numTrees</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span> \
-    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[223]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Define Cross Validators</span>
-<span class="n">lr_crossval</span> <span class="o">=</span> <span class="n">CrossValidator</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">lr_pipeline</span><span class="p">,</span>
-                          <span class="n">estimatorParamMaps</span><span class="o">=</span><span class="n">lr_paramGrid</span><span class="p">,</span>
-                          <span class="n">evaluator</span><span class="o">=</span><span class="n">MulticlassClassificationEvaluator</span><span class="p">(),</span>
-                          <span class="n">numFolds</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
-
-<span class="n">gbt_crossval</span> <span class="o">=</span> <span class="n">CrossValidator</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">gbt_pipeline</span><span class="p">,</span>
-                          <span class="n">estimatorParamMaps</span><span class="o">=</span><span class="n">gbt_paramGrid</span><span class="p">,</span>
-                          <span class="n">evaluator</span><span class="o">=</span><span class="n">MulticlassClassificationEvaluator</span><span class="p">(),</span>
-                          <span class="n">numFolds</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
-
-<span class="n">svm_crossval</span> <span class="o">=</span> <span class="n">CrossValidator</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">svm_pipeline</span><span class="p">,</span>
-                          <span class="n">estimatorParamMaps</span><span class="o">=</span><span class="n">svm_paramGrid</span><span class="p">,</span>
-                          <span class="n">evaluator</span><span class="o">=</span><span class="n">MulticlassClassificationEvaluator</span><span class="p">(),</span>
-                          <span class="n">numFolds</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
-
-<span class="n">rf_crossval</span> <span class="o">=</span> <span class="n">CrossValidator</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">rf_pipeline</span><span class="p">,</span>
-                          <span class="n">estimatorParamMaps</span><span class="o">=</span><span class="n">rf_paramGrid</span><span class="p">,</span>
-                          <span class="n">evaluator</span><span class="o">=</span><span class="n">MulticlassClassificationEvaluator</span><span class="p">(),</span>
-                          <span class="n">numFolds</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义评估指标；labelCol原始列，predictionCol预测列</span>
+<span class="n">evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">predictionCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -17559,23 +17561,24 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[224]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">lr_model</span> <span class="o">=</span> <span class="n">lr_crossval</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">lr_predict</span> <span class="o">=</span> <span class="n">lr_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-<span class="n">lr_evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span> <span class="o">=</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="n">predictionCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
-<span class="n">lr_accuracy</span> <span class="o">=</span> <span class="n">lr_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">lr_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">lr_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
-<span class="n">lr_f1score</span> <span class="o">=</span> <span class="n">lr_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">lr_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">lr_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
+<span class="n">logist_lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">featuresCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
+<span class="n">logist_model</span> <span class="o">=</span> <span class="n">logist_lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_tf</span><span class="p">)</span>
+<span class="n">logist_predict</span> <span class="o">=</span> <span class="n">logist_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_tf</span><span class="p">)</span>
+<span class="n">logist_lr_accuracy</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">logist_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
+<span class="n">logist_lr_f1score</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">logist_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
+
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elapsed Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Run Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Logistic Regression Metrics:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr_accuracy</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lr_f1score</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">logist_lr_accuracy</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">logist_lr_f1score</span><span class="p">))</span>
 
-<span class="n">pd_ml_results</span><span class="p">[</span><span class="s1">&#39;LogisticRegression&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_accuracy</span><span class="p">,</span><span class="n">lr_f1score</span><span class="p">]</span>
+<span class="n">pd_ml_default_results</span><span class="p">[</span><span class="s1">&#39;LogisticRegression&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">logist_lr_accuracy</span><span class="p">,</span><span class="n">logist_lr_f1score</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -17592,10 +17595,10 @@ dtype: int64
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Elapsed Time: 20.83
+<pre>Run Time: 1.99
 Logistic Regression Metrics:
-Accuracy: 0.8309859154929577
-F-1 Score:0.7542795232936078
+Accuracy: 0.7666666666666667
+F-1 Score:0.6654088050314467
 </pre>
 </div>
 </div>
@@ -17616,25 +17619,24 @@ F-1 Score:0.7542795232936078
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[225]:</div>
+<div class="prompt input_prompt">In&nbsp;[266]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">gbt_model</span> <span class="o">=</span> <span class="n">gbt_crossval</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">gbt_predict</span> <span class="o">=</span> <span class="n">gbt_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-
-<span class="n">gbt_evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span> <span class="o">=</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="n">predictionCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
-
-<span class="n">gbt_accuracy</span> <span class="o">=</span> <span class="n">gbt_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">gbt_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">gbt_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
-<span class="n">gbt_f1score</span> <span class="o">=</span> <span class="n">gbt_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">gbt_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">gbt_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
+<span class="n">gbt_tf_lr</span> <span class="o">=</span> <span class="n">GBTClassifier</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">featuresCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
+<span class="n">gbt_tf_model</span> <span class="o">=</span> <span class="n">gbt_tf_lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_tf</span><span class="p">)</span>
+<span class="n">gbt_tf_predict</span> <span class="o">=</span> <span class="n">gbt_tf_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_tf</span><span class="p">)</span>
+<span class="n">gbt_tf_lr_accuracy</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">gbt_tf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
+<span class="n">gbt_tf_lr_f1score</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">gbt_tf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
 
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elapsed Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gradient Boosted Trees Metrics:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gbt_accuracy</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gbt_f1score</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Run Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
 
-<span class="n">pd_ml_results</span><span class="p">[</span><span class="s1">&#39;GradientBoostedTrees&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gbt_accuracy</span><span class="p">,</span><span class="n">gbt_f1score</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gradient Boosted Trees Metrics:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gbt_tf_lr_accuracy</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gbt_tf_lr_f1score</span><span class="p">))</span>
+
+<span class="n">pd_ml_default_results</span><span class="p">[</span><span class="s1">&#39;GradientBoostedTrees&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gbt_tf_lr_accuracy</span><span class="p">,</span><span class="n">gbt_tf_lr_f1score</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -17651,10 +17653,10 @@ F-1 Score:0.7542795232936078
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Elapsed Time: 44.84
+<pre>Run Time: 6.46
 Gradient Boosted Trees Metrics:
-Accuracy: 0.8028169014084507
-F-1 Score:0.7400968309859155
+Accuracy: 0.6
+F-1 Score:0.5749999999999998
 </pre>
 </div>
 </div>
@@ -17675,26 +17677,24 @@ F-1 Score:0.7400968309859155
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[226]:</div>
+<div class="prompt input_prompt">In&nbsp;[268]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">svm_model</span> <span class="o">=</span> <span class="n">svm_crossval</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">svm_predict</span> <span class="o">=</span> <span class="n">svm_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-
-
-<span class="n">svm_evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span> <span class="o">=</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="n">predictionCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
-
-<span class="n">svm_accuracy</span> <span class="o">=</span> <span class="n">svm_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">svm_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">svm_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
-<span class="n">svm_f1score</span> <span class="o">=</span> <span class="n">svm_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">svm_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">svm_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
+<span class="n">svm_tf_lr</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">featuresCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
+<span class="n">svm_tf_model</span> <span class="o">=</span> <span class="n">svm_tf_lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_tf</span><span class="p">)</span>
+<span class="n">svm_tf_predict</span> <span class="o">=</span> <span class="n">svm_tf_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_tf</span><span class="p">)</span>
+<span class="n">svm_tf_lr_accuracy</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">svm_tf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
+<span class="n">svm_tf_lr_f1score</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">svm_tf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
 
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elapsed Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SupportVectorMachine Metrics:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">svm_accuracy</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">svm_f1score</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Run Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
 
-<span class="n">pd_ml_results</span><span class="p">[</span><span class="s1">&#39;SupportVectorMachine(SVM)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">svm_accuracy</span><span class="p">,</span><span class="n">svm_f1score</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SupportVectorMachine Metrics:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">svm_tf_lr_accuracy</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">svm_tf_lr_f1score</span><span class="p">))</span>
+
+<span class="n">pd_ml_default_results</span><span class="p">[</span><span class="s1">&#39;SupportVectorMachine(SVM)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">svm_tf_lr_accuracy</span><span class="p">,</span><span class="n">svm_tf_lr_f1score</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -17711,10 +17711,10 @@ F-1 Score:0.7400968309859155
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Elapsed Time: 5.97
+<pre>Run Time: 8.54
 SupportVectorMachine Metrics:
-Accuracy: 0.8309859154929577
-F-1 Score:0.7542795232936078
+Accuracy: 0.7666666666666667
+F-1 Score:0.6654088050314467
 </pre>
 </div>
 </div>
@@ -17735,28 +17735,24 @@ F-1 Score:0.7542795232936078
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[227]:</div>
+<div class="prompt input_prompt">In&nbsp;[269]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-
-<span class="n">rf_model</span> <span class="o">=</span> <span class="n">rf_crossval</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">rf_predict</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-
-
-<span class="n">rf_evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span> <span class="o">=</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="n">predictionCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
-
-<span class="n">rf_accuracy</span> <span class="o">=</span> <span class="n">rf_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">rf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">rf_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
-<span class="n">rf_f1score</span> <span class="o">=</span> <span class="n">rf_evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">rf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">rf_evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
+<span class="n">rf_tf_lr</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">featuresCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
+<span class="n">rf_tf_model</span> <span class="o">=</span> <span class="n">rf_tf_lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_tf</span><span class="p">)</span>
+<span class="n">rf_tf_predict</span> <span class="o">=</span> <span class="n">rf_tf_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_tf</span><span class="p">)</span>
+<span class="n">rf_tf_lr_accuracy</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">rf_tf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
+<span class="n">rf_tf_lr_f1score</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">rf_tf_predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
 
 <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elapsed Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Run Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Random Forest Metrics:&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rf_accuracy</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rf_f1score</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RandomForest Metrics:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rf_tf_lr_accuracy</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rf_tf_lr_f1score</span><span class="p">))</span>
 
-<span class="n">pd_ml_results</span><span class="p">[</span><span class="s1">&#39;RandomForest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">rf_accuracy</span><span class="p">,</span><span class="n">rf_f1score</span><span class="p">]</span>
+<span class="n">pd_ml_default_results</span><span class="p">[</span><span class="s1">&#39;RandomForest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">rf_tf_lr_accuracy</span><span class="p">,</span><span class="n">rf_tf_lr_f1score</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -17773,10 +17769,10 @@ F-1 Score:0.7542795232936078
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Elapsed Time: 51.06
-Random Forest Metrics:
-Accuracy: 0.8028169014084507
-F-1 Score:0.7400968309859155
+<pre>Run Time: 1.63
+RandomForest Metrics:
+Accuracy: 0.7666666666666667
+F-1 Score:0.6654088050314467
 </pre>
 </div>
 </div>
@@ -17787,10 +17783,10 @@ F-1 Score:0.7400968309859155
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[228]:</div>
+<div class="prompt input_prompt">In&nbsp;[272]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd_ml_results</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;无参数模型评分结果集合：</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">pd_ml_default_results</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -17807,13 +17803,226 @@ F-1 Score:0.7400968309859155
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  Evaluations  LogisticRegression  GradientBoostedTrees  \
-0    Accuracy            0.830986              0.802817   
-1    F1_Score            0.754280              0.740097   
+<pre>无参数模型评分结果集合：
+   Evaluations  LogisticRegression  GradientBoostedTrees  \
+0    Accuracy            0.766667                 0.600   
+1    F1_Score            0.665409                 0.575   
 
    SupportVectorMachine(SVM)  RandomForest  
-0                   0.830986      0.802817  
-1                   0.754280      0.740097  
+0                   0.766667      0.766667  
+1                   0.665409      0.665409  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#35843;&#21442;&#25968;&#27169;&#22411;">&#35843;&#21442;&#25968;&#27169;&#22411;<a class="anchor-link" href="#&#35843;&#21442;&#25968;&#27169;&#22411;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#21442;&#32771;&#25991;&#29486;">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></h3><p><a href="https://spark.apache.org/docs/latest/ml-tuning.html">CrossValidator</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd_ml_results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pd_ml_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd_ml_results</span><span class="p">)</span>
+<span class="n">pd_ml_results</span><span class="p">[</span><span class="s1">&#39;Evaluations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1_Score&#39;</span><span class="p">]</span>
+<span class="n">pd_ml_results2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pd_ml_results2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd_ml_results2</span><span class="p">)</span>
+<span class="n">pd_ml_results2</span><span class="p">[</span><span class="s1">&#39;Evaluations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1_Score&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义 Machine learning classifiers</span>
+<span class="n">lr_classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">maxIter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">regParam</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">elasticNetParam</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">gbt_classifier</span> <span class="o">=</span> <span class="n">GBTClassifier</span><span class="p">(</span><span class="n">maxIter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">svm_classifier</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">maxIter</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">rf_classifier</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义 pipelines</span>
+<span class="n">lr_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">lr_classifier</span><span class="p">]);</span>
+<span class="n">gbt_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">gbt_classifier</span><span class="p">]);</span>
+<span class="n">svm_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">svm_classifier</span><span class="p">]);</span>
+<span class="n">rf_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">assembler</span><span class="p">,</span> <span class="n">scaler</span><span class="p">,</span> <span class="n">rf_classifier</span><span class="p">]);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#23450;&#20041;&#27169;&#22411;&#35757;&#32451;&#20989;&#25968;">&#23450;&#20041;&#27169;&#22411;&#35757;&#32451;&#20989;&#25968;<a class="anchor-link" href="#&#23450;&#20041;&#27169;&#22411;&#35757;&#32451;&#20989;&#25968;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义一个函数，获取Accuracy跟F1Scores</span>
+<span class="k">def</span> <span class="nf">getAccuracyAndF1Scores</span><span class="p">(</span><span class="n">all_cores</span><span class="p">):</span>
+    <span class="n">pd_results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">pd_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pd_results</span><span class="p">)</span>
+    <span class="n">pd_results</span><span class="p">[</span><span class="s1">&#39;Evaluations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1_Score&#39;</span><span class="p">]</span>
+    <span class="c1"># 循环遍历数组</span>
+    <span class="k">for</span> <span class="n">module_name</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">estimatorParamMap</span> <span class="ow">in</span> <span class="n">all_cores</span><span class="p">:</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        
+        <span class="n">crossval</span> <span class="o">=</span> <span class="n">CrossValidator</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">estimator</span><span class="p">,</span>
+                          <span class="n">estimatorParamMaps</span><span class="o">=</span><span class="n">estimatorParamMap</span><span class="p">,</span>
+                          <span class="n">evaluator</span><span class="o">=</span><span class="n">MulticlassClassificationEvaluator</span><span class="p">(),</span>
+                          <span class="n">numFolds</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">crossval</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+        <span class="n">predict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+        <span class="n">evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span> <span class="o">=</span> <span class="s2">&quot;label&quot;</span><span class="p">,</span><span class="n">predictionCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
+        <span class="n">accuracy</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
+        <span class="n">f1score</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">predict</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
+        
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Run Time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="mi">2</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">module_name</span><span class="p">,</span> <span class="s1">&#39;Metrics:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F-1 Score:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1score</span><span class="p">))</span>
+        <span class="n">pd_results</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">accuracy</span><span class="p">,</span><span class="n">f1score</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">pd_results</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义 param grids，</span>
+<span class="n">lr_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+   <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
+   <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="n">gbt_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+   <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">gbt_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
+   <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="n">svm_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+   <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
+   <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="n">rf_paramGrid</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+   <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">rf_classifier</span><span class="o">.</span><span class="n">numTrees</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span> \
+   <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义四种模型名称</span>
+<span class="n">all_module_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Logistic Regression&quot;</span><span class="p">,</span> <span class="s2">&quot;Gradient Boosted Trees&quot;</span><span class="p">,</span> <span class="s2">&quot;Support Vector Machine&quot;</span><span class="p">,</span> <span class="s2">&quot;Random Forest&quot;</span><span class="p">]</span>
+<span class="c1"># 定义CrossValidator的estimators参数</span>
+<span class="n">all_estimators</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_pipeline</span><span class="p">,</span> <span class="n">gbt_pipeline</span><span class="p">,</span> <span class="n">svm_pipeline</span><span class="p">,</span> <span class="n">rf_pipeline</span><span class="p">]</span>
+<span class="c1"># 定义CrossValidator的estimatorParamMaps参数</span>
+<span class="n">all_estimatorParamMaps</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_paramGrid</span><span class="p">,</span> <span class="n">gbt_paramGrid</span><span class="p">,</span> <span class="n">svm_paramGrid</span><span class="p">,</span> <span class="n">rf_paramGrid</span><span class="p">]</span>
+
+<span class="c1"># 定义遍历数组</span>
+<span class="n">all_module_cores</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">all_module_names</span><span class="p">,</span> <span class="n">all_estimators</span><span class="p">,</span> <span class="n">all_estimatorParamMaps</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[287]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 获取结果</span>
+<span class="n">cores_result</span> <span class="o">=</span>  <span class="n">getAccuracyAndF1Scores</span><span class="p">(</span><span class="n">all_module_cores</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Run Time: 3.97
+Logistic Regression Metrics:
+
+Accuracy: 0.7666666666666667
+F-1 Score:0.6654088050314467
+Run Time: 12.53
+Gradient Boosted Trees Metrics:
+
+Accuracy: 0.6666666666666666
+F-1 Score:0.6133333333333333
+Run Time: 6.02
+Support Vector Machine Metrics:
+
+Accuracy: 0.7666666666666667
+F-1 Score:0.6654088050314467
+Run Time: 7.51
+Random Forest Metrics:
+
+Accuracy: 0.7666666666666667
+F-1 Score:0.6654088050314467
 </pre>
 </div>
 </div>
@@ -17838,7 +18047,173 @@ F-1 Score:0.7400968309859155
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#20174;&#32467;&#26524;&#26469;&#30475;&#22235;&#20010;&#27169;&#22411;&#30340;&#35757;&#32451;&#32467;&#26524;&#37117;&#24046;&#21035;&#19981;&#22823;&#65307;LogisticRegression&#36319;SupportVectorMachine(SVM)&#30340;&#20998;&#25968;&#36739;&#39640;&#65292;&#22312;&#35757;&#32451;&#36807;&#31243;&#20013;SupportVectorMachine(SVM)&#30340;&#29992;&#26102;&#36739;&#23569;&#65292;&#20010;&#20154;&#35748;&#20026;&#22312;&#22235;&#20010;&#27169;&#22411;&#20013;SupportVectorMachine(SVM)&#26368;&#22909;&#65292;">&#20174;&#32467;&#26524;&#26469;&#30475;&#22235;&#20010;&#27169;&#22411;&#30340;&#35757;&#32451;&#32467;&#26524;&#37117;&#24046;&#21035;&#19981;&#22823;&#65307;LogisticRegression&#36319;SupportVectorMachine(SVM)&#30340;&#20998;&#25968;&#36739;&#39640;&#65292;&#22312;&#35757;&#32451;&#36807;&#31243;&#20013;SupportVectorMachine(SVM)&#30340;&#29992;&#26102;&#36739;&#23569;&#65292;&#20010;&#20154;&#35748;&#20026;&#22312;&#22235;&#20010;&#27169;&#22411;&#20013;SupportVectorMachine(SVM)&#26368;&#22909;&#65292;<a class="anchor-link" href="#&#20174;&#32467;&#26524;&#26469;&#30475;&#22235;&#20010;&#27169;&#22411;&#30340;&#35757;&#32451;&#32467;&#26524;&#37117;&#24046;&#21035;&#19981;&#22823;&#65307;LogisticRegression&#36319;SupportVectorMachine(SVM)&#30340;&#20998;&#25968;&#36739;&#39640;&#65292;&#22312;&#35757;&#32451;&#36807;&#31243;&#20013;SupportVectorMachine(SVM)&#30340;&#29992;&#26102;&#36739;&#23569;&#65292;&#20010;&#20154;&#35748;&#20026;&#22312;&#22235;&#20010;&#27169;&#22411;&#20013;SupportVectorMachine(SVM)&#26368;&#22909;&#65292;">&#182;</a></h3>
+<h2 id="&#36229;&#21442;&#25968;&#35843;&#20248;&#65292;&#36890;&#36807;&#35774;&#32622;maxIter&#65292;regParam&#65292;elasticNetParam&#65292;aggregationDepth&#65292;maxDepth&#12289;numTrees&#31561;&#36229;&#21442;&#25968;&#36827;&#34892;&#35843;&#20248;">&#36229;&#21442;&#25968;&#35843;&#20248;&#65292;&#36890;&#36807;&#35774;&#32622;maxIter&#65292;regParam&#65292;elasticNetParam&#65292;aggregationDepth&#65292;maxDepth&#12289;numTrees&#31561;&#36229;&#21442;&#25968;&#36827;&#34892;&#35843;&#20248;<a class="anchor-link" href="#&#36229;&#21442;&#25968;&#35843;&#20248;&#65292;&#36890;&#36807;&#35774;&#32622;maxIter&#65292;regParam&#65292;elasticNetParam&#65292;aggregationDepth&#65292;maxDepth&#12289;numTrees&#31561;&#36229;&#21442;&#25968;&#36827;&#34892;&#35843;&#20248;">&#182;</a></h2><ul>
+<li>maxIter 尝试了[5, 10, 20]，[5, 10, 30]，[5, 10, 100]</li>
+<li>regParam 尝试了[0.1, 0.01]，[0.1, 0.1]</li>
+<li>maxDepth 尝试了[2, 4, 6, 8]，[4, 6, 8, 10]</li>
+<li>numTrees 尝试了[10, 25, 50, 100]，[20, 30, 50, 100]</li>
+</ul>
+<p>发现maxIter[5, 10, 20]比较好
+发现regParam[0.1, 0.01]比较好
+发现maxDepth[2, 4, 6, 8]比较好
+发现numTrees[10, 25, 50, 100]比较好</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># param grids,调参数</span>
+<span class="n">lr_paramGrid2</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">regParam</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">elasticNetParam</span><span class="p">,[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">lr_classifier</span><span class="o">.</span><span class="n">aggregationDepth</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="n">gbt_paramGrid2</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">gbt_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">gbt_classifier</span><span class="o">.</span><span class="n">maxDepth</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="n">svm_paramGrid2</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">svm_classifier</span><span class="o">.</span><span class="n">maxIter</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="n">rf_paramGrid2</span> <span class="o">=</span> <span class="n">ParamGridBuilder</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">rf_classifier</span><span class="o">.</span><span class="n">impurity</span><span class="p">,[</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="s1">&#39;gini&#39;</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">rf_classifier</span><span class="o">.</span><span class="n">maxDepth</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">addGrid</span><span class="p">(</span><span class="n">rf_classifier</span><span class="o">.</span><span class="n">numTrees</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span> \
+    <span class="o">.</span><span class="n">build</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 定义四种模型名称</span>
+<span class="n">all_module_names2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Logistic Regression&quot;</span><span class="p">,</span> <span class="s2">&quot;Gradient Boosted Trees&quot;</span><span class="p">,</span> <span class="s2">&quot;Support Vector Machine&quot;</span><span class="p">,</span> <span class="s2">&quot;Random Forest&quot;</span><span class="p">]</span>
+<span class="c1"># 定义CrossValidator的estimators参数</span>
+<span class="n">all_estimators2</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_pipeline</span><span class="p">,</span> <span class="n">gbt_pipeline</span><span class="p">,</span> <span class="n">svm_pipeline</span><span class="p">,</span> <span class="n">rf_pipeline</span><span class="p">]</span>
+<span class="c1"># 定义CrossValidator的estimatorParamMaps参数</span>
+<span class="n">all_estimatorParamMaps2</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_paramGrid2</span><span class="p">,</span> <span class="n">gbt_paramGrid2</span><span class="p">,</span> <span class="n">svm_paramGrid2</span><span class="p">,</span> <span class="n">rf_paramGrid2</span><span class="p">]</span>
+
+<span class="c1"># 定义遍历数组</span>
+<span class="n">all_module_cores2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">all_module_names2</span><span class="p">,</span> <span class="n">all_estimators2</span><span class="p">,</span> <span class="n">all_estimatorParamMaps2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 获取结果</span>
+<span class="n">cores_result2</span> <span class="o">=</span> <span class="n">getAccuracyAndF1Scores</span><span class="p">(</span><span class="n">all_module_cores2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Run Time: 17.39
+Logistic Regression Metrics:
+
+Accuracy: 0.8309859154929577
+F-1 Score:0.7542795232936078
+Run Time: 39.78
+Gradient Boosted Trees Metrics:
+
+Accuracy: 0.8028169014084507
+F-1 Score:0.7597809076682317
+Run Time: 5.42
+Support Vector Machine Metrics:
+
+Accuracy: 0.8309859154929577
+F-1 Score:0.7542795232936078
+Run Time: 50.14
+Random Forest Metrics:
+
+Accuracy: 0.8309859154929577
+F-1 Score:0.7542795232936078
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#27169;&#22411;&#35757;&#32451;&#32467;&#26524;&#20998;&#26512;">&#27169;&#22411;&#35757;&#32451;&#32467;&#26524;&#20998;&#26512;<a class="anchor-link" href="#&#27169;&#22411;&#35757;&#32451;&#32467;&#26524;&#20998;&#26512;">&#182;</a></h3><ul>
+<li>无参数模型结果分析</li>
+</ul>
+<p>四个模型无参数训练为无参数模型评分结果集合：
+   Evaluations</p>
+
+<pre><code> LogisticRegression  GradientBoostedTrees  \
+</code></pre>
+<p>0    Accuracy            0.766667                 0.600<br>
+1    F1_Score            0.665409                 0.575</p>
+<p>SupportVectorMachine(SVM)  RandomForest<br>
+0                   0.766667      0.766667<br>
+1                   0.665409      0.665409</p>
+<p>从结果来看四个模型的训练结果都差别不大，各个训练结果跟f1score都比较接近，没有过拟合；从结果来看，LogisticRegression，SupportVectorMachine(SVM)，RandomForest这个三个模型的准确度跟f1score分数都较高，GradientBoostedTrees模型预测分数就相对差点，分数在6及6以下；</p>
+<p>GradientBoostedTrees模型预测分数为什么比其他的低，回看上面的分析，可能是我提取的的特征数相对来说比较少，还有就是没有做参数调优，树的迭代次数没有设置好；</p>
+<p>总的来说无参数调优的模型还不足够稳健，等下面我们参数调优后再看模型训练结果是否变好；</p>
+<p>在训练数据方面，我分配了训练跟测试的集合比例用的[0.8,0.2]。训练数据比较平衡</p>
+<p>总的来看LogisticRegression跟SupportVectorMachine(SVM)的分数较高，在无参数训练过程中LogisticRegression的用时较少，在无参数情况下认为在四个模型中LogisticRegression最好；</p>
+<ul>
+<li>参数调优模型结果分析
+四个模型无参数训练为无参数模型评分结果集合：
+Run Time: 17.39
+Logistic Regression Metrics:
+Accuracy: 0.8309859154929577
+F-1 Score:0.7542795232936078</li>
+</ul>
+<p>Run Time: 39.78
+Gradient Boosted Trees Metrics:
+Accuracy: 0.8028169014084507
+F-1 Score:0.7597809076682317</p>
+<p>Run Time: 5.42
+Support Vector Machine Metrics:
+Accuracy: 0.8309859154929577
+F-1 Score:0.7542795232936078</p>
+<p>Run Time: 50.14
+Random Forest Metrics:
+Accuracy: 0.8309859154929577
+F-1 Score:0.7542795232936078</p>
+<p>哇，调优后，四个模型不论 Accuracy还是F1_Score都得到相应的提高，各个训练结果跟f1score都比较接近，没有过拟合；从结果来看四个模型的训练结果
+Accuracy都达到了0.8以上，F1_Score评分都在0.75以上；Logistic Regression跟Support Vector Machine的模型数据最好，Gradient Boosted Trees跟Random Forest的模型次之；调优后四个模型都比较稳健；</p>
+<p>我再看调优后四个模型的训练时长：Random Forest&gt;Gradient Boosted Trees&gt;Logistic Regression&gt;Support Vector Machine;</p>
+<p>在训练数据方面，我分配了训练跟测试的集合比例用的[0.8,0.2]。训练数据比较平衡；</p>
+<p>综合考虑，我个人认为使用SupportVectorMachine(SVM)的模型最好，时间上，分数都有不错的表现；</p>
+
 </div>
 </div>
 </div>
@@ -17857,25 +18232,103 @@ F-1 Score:0.7400968309859155
 <p>然后通过研究其他特征的对客户流失情况进行可视化分析，提取对结果影响较大的重要特征；</p>
 <p>最后我们建立模型，对数据进行训练及预测；</p>
 <p>在分析过程中，我在对客户流失情况重要特征的提取过程耗时最多，研究特征之间的关联，互通性，需要对数据集特征进行多变量的分析；</p>
-<p>遇到比较困难的地方是数据建模方面，可能对建模这方面还不是很熟练，特别调参方面，可能导致预测不是很准确；后面需要加强建模及调参数的的训练，
-这次项目模型运行的时间较长这里没办法实践太多次；</p>
-<p>代码改进方面，一开始项目我是通过命令式进行查询数据的，后面发现有些查询使用命令式查询的话比较繁琐跟困难，后面通过学习，使用了声明式SQL语句进行优化代码，使用sql比较简洁方便。</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#27169;&#22411;&#21442;&#25968;&#20248;&#21270;">&#27169;&#22411;&#21442;&#25968;&#20248;&#21270;<a class="anchor-link" href="#&#27169;&#22411;&#21442;&#25968;&#20248;&#21270;">&#182;</a></h3>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>首页，训练的特征我使用了MinMaxScaler进行转换，因为我希望特征的值都是在0,1之间；</p>
+<p>对于模型参数，一开始模型的训练跟测试比例为[0.9,0.1],后面尝试了[0.8,0.2]比较适合；</p>
+<p>还有开始使用的maxIter次数是10，其他参数默认的情况下拿捏不准具体参数，使用网格搜索后发现：maxIter，maxDepth、numTrees等超参数
+对于LogisticRegression模型：
+maxIter、regParam、elasticNetParam、aggregationDepth分别为[5, 10, 20]，[0.1, 0.01]，[2, 5]时准确率最高；
+对于Gradient Boosted Trees模型：
+maxIter、maxDepth分别为[5, 10, 20]，[2, 4, 6, 8]时准确率最高。</p>
+<p>对于Support Vector Machine模型：
+maxIter、maxDepth分别为[5, 10, 20]，[2, 4, 6, 8]时准确率最高。</p>
+<p>对于Support Vector Machine模型：
+maxIter为[5, 10, 20]时准确率最高。</p>
+<p>对于Random Forest模型：
+impurity、maxDepth、numTrees分别为['entropy', 'gini']，[2, 4, 6, 8]，[10, 25, 50, 100]时准确率最高。</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#22256;&#38590;&#26041;&#38754;&#65306;">&#22256;&#38590;&#26041;&#38754;&#65306;<a class="anchor-link" href="#&#22256;&#38590;&#26041;&#38754;&#65306;">&#182;</a></h3><ul>
+<li><p>特征提取方面：</p>
+<p>个人觉得在特征提取分析方面比较麻烦，因为数据量较多，字段也较多，需要通过多变量分析特征之间的共同点，有时候还需要通过根据某个特征新增变量进行与其他特征的分析；查询条件也比较复杂；耗费时间较多</p>
+</li>
+</ul>
+<ul>
+<li><p>模型参数方面：</p>
+<p>过程中发现对建模这方面还不是很熟练，特别调参方面，需要通过网络查询比较多资料，而且由于数据集庞大，调参后每次运行都要耗费好长时间；</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#26377;&#36259;&#30340;&#26041;&#38754;">&#26377;&#36259;&#30340;&#26041;&#38754;<a class="anchor-link" href="#&#26377;&#36259;&#30340;&#26041;&#38754;">&#182;</a></h3><p>（个人认为困难的方面也是有趣的方面）</p>
+<ul>
+<li><p>特征提取方面：</p>
+<p>个人觉得在特征提取分析方面虽然麻烦，但是通过不断的实践，最后分析出自己想要的结果，感觉非常棒！</p>
+</li>
+</ul>
+<ul>
+<li><p>模型参数方面：</p>
+<p>虽然开始对建模这方面还不是很熟练，特别调参方面，但是通过网络查询资料后，对调参方面有比较大的理解；</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#20195;&#30721;&#25913;&#36827;&#26041;&#38754;">&#20195;&#30721;&#25913;&#36827;&#26041;&#38754;<a class="anchor-link" href="#&#20195;&#30721;&#25913;&#36827;&#26041;&#38754;">&#182;</a></h2><ul>
+<li>SQL方面的改进，开始项目我是通过命令式进行查询数据的，后面发现有些查询使用命令式查询的话比较繁琐跟困难，后面通过学习，使用了声明式SQL语句进行优化代码，使用sql比较简洁方便；</li>
+<li>开始模型没有通过调参直接运行，运行结果不是很理想，后面通过网上查找资料，通过CrossValidator设置参数，进行调参，优化模型，得出比较好的结果；</li>
+<li>代码的改进，简洁代码，开始四个模型我是逐个分开来写的，其实里面方法可以方法可以共用，我定义了一个函数，整合四个模型的公共方法，通过传参形式进行调用；方便调用；</li>
+</ul>
+<h4 id="&#26410;&#26469;&#21487;&#33021;&#38656;&#35201;&#25913;&#36827;&#30340;&#22320;&#26041;">&#26410;&#26469;&#21487;&#33021;&#38656;&#35201;&#25913;&#36827;&#30340;&#22320;&#26041;<a class="anchor-link" href="#&#26410;&#26469;&#21487;&#33021;&#38656;&#35201;&#25913;&#36827;&#30340;&#22320;&#26041;">&#182;</a></h4><ul>
+<li>模型训练的时间还是比较长，需要考虑如何在保持分数高的准确率跟F1score情况下缩短训练时长；需要进一步加强超参数调优方面的知识，看饿呢个</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#21442;&#32771;&#25991;&#29486;">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></h2><p><a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a>.</p>
+<p><a href="https://blog.csdn.net/otengyue/article/details/89426004">ROC 和 AUC</a>.</p>
+<p><a href="https://spark.apache.org/docs/latest/ml-tuning.html">CrossValidator</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
